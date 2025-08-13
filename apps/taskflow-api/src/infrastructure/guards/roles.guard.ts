@@ -5,8 +5,8 @@ import {
     ForbiddenException,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { UserRole } from '../database/entities/user.entity';
 import { AuthenticatedRequest } from './jwt-auth.guard';
+import { UserRole } from '@repo/domains';
 
 @Injectable()
 export class RolesGuard implements CanActivate {

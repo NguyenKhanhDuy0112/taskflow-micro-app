@@ -1,8 +1,8 @@
 import { SetMetadata, applyDecorators, UseGuards } from '@nestjs/common';
 import { ApiForbiddenResponse } from '@nestjs/swagger';
-import { UserRole } from '../database/entities/user.entity';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { RolesGuard } from '../guards/roles.guard';
+import { UserRole } from '@repo/domains';
 
 export const Roles = (...roles: UserRole[]) => {
     return applyDecorators(

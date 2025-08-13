@@ -1,6 +1,6 @@
 import { BaseEntity } from './base/entity.base';
 import { Id } from '../value-objects/id.vo';
-import { SprintStatus } from '../../infrastructure/database/entities/sprint.entity';
+import { SprintStatus } from '@repo/domains';
 
 export class SprintEntity extends BaseEntity {
     private constructor(

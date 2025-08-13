@@ -2,7 +2,7 @@ import { BaseEntity } from './base/entity.base';
 import { Id } from '../value-objects/id.vo';
 import { Email } from '../value-objects/email.vo';
 import { Password } from '../value-objects/password.vo';
-import { UserRole } from '../../infrastructure/database/entities/user.entity';
+import { UserRole } from '@repo/domains';
 
 export class AuthUserEntity extends BaseEntity {
     private constructor(

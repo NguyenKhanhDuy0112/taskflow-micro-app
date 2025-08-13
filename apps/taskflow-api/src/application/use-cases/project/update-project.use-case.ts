@@ -3,7 +3,7 @@ import type { ProjectRepositoryInterface } from '../../../domain/repositories/pr
 import type { ProjectMemberRepositoryInterface } from '../../../domain/repositories/project-member.repository.interface';
 import { ProjectEntity } from '../../../domain/entities/project.entity';
 import { UpdateProjectDto } from '../../dto/project/update-project.dto';
-import { ProjectStatus } from '../../../infrastructure/database/entities/project.entity';
+import { ProjectStatus } from '@repo/domains';
 
 @Injectable()
 export class UpdateProjectUseCase {

@@ -1,6 +1,7 @@
 import { BaseSeeder } from './base-seeder';
-import { UserOrmEntity, UserRole } from '../entities/user.entity';
+import { UserOrmEntity } from '../entities/user.entity';
 import * as bcrypt from 'bcryptjs';
+import { UserRole } from '@repo/domains';
 
 export class UsersSeeder extends BaseSeeder {
     async run(): Promise<void> {

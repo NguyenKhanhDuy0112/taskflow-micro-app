@@ -1,25 +1,30 @@
 import { IsString, IsEnum, IsOptional, MinLength, MaxLength, IsInt, IsDateString, Min, Max } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { IssueType, IssuePriority } from '../../../infrastructure/database/entities/issue.entity';
+import {
+    CreateIssueRequest,
+    IssueType,
+    IssuePriority,
+    ISSUE_CONSTANTS
+} from '@repo/domains';
 
-export class CreateIssueDto {
+export class CreateIssueDto implements CreateIssueRequest {
     @ApiProperty({ example: 'Implement user authentication' })
     @IsString()
-    @MinLength(3)
-    @MaxLength(255)
+    @MinLength(ISSUE_CONSTANTS.MIN_TITLE_LENGTH)
+    @MaxLength(ISSUE_CONSTANTS.MAX_TITLE_LENGTH)
     title: string;
 
     @ApiProperty({ example: 'Add JWT-based authentication system with login/register endpoints', required: false })
     @IsOptional()
     @IsString()
-    @MaxLength(2000)
+    @MaxLength(ISSUE_CONSTANTS.MAX_DESCRIPTION_LENGTH)
     description?: string;
 
-    @ApiProperty({ enum: IssueType, default: IssueType.TASK })
+    @ApiProperty({ enum: IssueType, default: ISSUE_CONSTANTS.DEFAULT_TYPE })
     @IsEnum(IssueType)
     type: IssueType;
 
-    @ApiProperty({ enum: IssuePriority, default: IssuePriority.MEDIUM })
+    @ApiProperty({ enum: IssuePriority, default: ISSUE_CONSTANTS.DEFAULT_PRIORITY })
     @IsEnum(IssuePriority)
     priority: IssuePriority;
 
@@ -38,11 +43,11 @@ export class CreateIssueDto {
     @IsString()
     parentId?: string;
 
-    @ApiProperty({ example: 5, required: false, minimum: 1, maximum: 100 })
+    @ApiProperty({ example: 5, required: false, minimum: ISSUE_CONSTANTS.MIN_STORY_POINTS, maximum: ISSUE_CONSTANTS.MAX_STORY_POINTS })
     @IsOptional()
     @IsInt()
-    @Min(1)
-    @Max(100)
+    @Min(ISSUE_CONSTANTS.MIN_STORY_POINTS)
+    @Max(ISSUE_CONSTANTS.MAX_STORY_POINTS)
     storyPoints?: number;
 
     @ApiProperty({ example: '2024-12-31', required: false })

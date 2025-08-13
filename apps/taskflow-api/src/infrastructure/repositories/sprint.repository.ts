@@ -3,7 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import type { SprintRepositoryInterface } from '../../domain/repositories/sprint.repository.interface';
 import { SprintEntity } from '../../domain/entities/sprint.entity';
-import { SprintOrmEntity, SprintStatus } from '../database/entities/sprint.entity';
+import { SprintOrmEntity } from '../database/entities/sprint.entity';
+import { SprintStatus } from '@repo/domains';
 
 @Injectable()
 export class SprintRepository implements SprintRepositoryInterface {

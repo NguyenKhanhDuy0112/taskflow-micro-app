@@ -1,6 +1,7 @@
 import { BaseSeeder } from './base-seeder';
-import { ProjectOrmEntity, ProjectStatus } from '../entities/project.entity';
+import { ProjectOrmEntity } from '../entities/project.entity';
 import { ProjectMemberOrmEntity, ProjectMemberRole } from '../entities/project-member.entity';
+import { ProjectStatus } from '@repo/domains';
 
 export class ProjectsSeeder extends BaseSeeder {
     async run(): Promise<void> {

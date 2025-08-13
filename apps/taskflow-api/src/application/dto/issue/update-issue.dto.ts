@@ -1,19 +1,24 @@
 import { IsString, IsEnum, IsOptional, MinLength, MaxLength, IsInt, IsDateString, Min, Max } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { IssueStatus, IssuePriority } from '../../../infrastructure/database/entities/issue.entity';
+import {
+    UpdateIssueRequest,
+    IssueStatus,
+    IssuePriority,
+    ISSUE_CONSTANTS
+} from '@repo/domains';
 
-export class UpdateIssueDto {
+export class UpdateIssueDto implements UpdateIssueRequest {
     @ApiProperty({ required: false })
     @IsOptional()
     @IsString()
-    @MinLength(3)
-    @MaxLength(255)
+    @MinLength(ISSUE_CONSTANTS.MIN_TITLE_LENGTH)
+    @MaxLength(ISSUE_CONSTANTS.MAX_TITLE_LENGTH)
     title?: string;
 
     @ApiProperty({ required: false })
     @IsOptional()
     @IsString()
-    @MaxLength(2000)
+    @MaxLength(ISSUE_CONSTANTS.MAX_DESCRIPTION_LENGTH)
     description?: string;
 
     @ApiProperty({ enum: IssueStatus, required: false })
@@ -36,11 +41,11 @@ export class UpdateIssueDto {
     @IsString()
     sprintId?: string;
 
-    @ApiProperty({ required: false, minimum: 1, maximum: 100 })
+    @ApiProperty({ required: false, minimum: ISSUE_CONSTANTS.MIN_STORY_POINTS, maximum: ISSUE_CONSTANTS.MAX_STORY_POINTS })
     @IsOptional()
     @IsInt()
-    @Min(1)
-    @Max(100)
+    @Min(ISSUE_CONSTANTS.MIN_STORY_POINTS)
+    @Max(ISSUE_CONSTANTS.MAX_STORY_POINTS)
     storyPoints?: number;
 
     @ApiProperty({ required: false })

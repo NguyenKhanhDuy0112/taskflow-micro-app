@@ -1,14 +1,18 @@
 import { IsString, IsEnum } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { IssueStatus } from '../../../infrastructure/database/entities/issue.entity';
+import {
+    MoveIssueStatusRequest,
+    MoveIssueToSprintRequest,
+    IssueStatus
+} from '@repo/domains';
 
-export class MoveIssueStatusDto {
+export class MoveIssueStatusDto implements MoveIssueStatusRequest {
     @ApiProperty({ enum: IssueStatus })
     @IsEnum(IssueStatus)
     status: IssueStatus;
 }
 
-export class MoveIssueToSprintDto {
+export class MoveIssueToSprintDto implements MoveIssueToSprintRequest {
     @ApiProperty({ example: 'sprint-uuid' })
     @IsString()
     sprintId: string;

@@ -1,7 +1,7 @@
 import { BaseEntity } from './base/entity.base';
 import { Id } from '../value-objects/id.vo';
 import { ProjectKey } from '../value-objects/project-key.vo';
-import { ProjectStatus } from '../../infrastructure/database/entities/project.entity';
+import { ProjectStatus } from '@repo/domains';
 
 export class ProjectEntity extends BaseEntity {
     private constructor(

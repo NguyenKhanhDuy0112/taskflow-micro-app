@@ -1,5 +1,6 @@
 import { BaseSeeder } from './base-seeder';
-import { SprintOrmEntity, SprintStatus } from '../entities/sprint.entity';
+import { SprintOrmEntity } from '../entities/sprint.entity';
+import { SprintStatus } from '@repo/domains';
 
 export class SprintsSeeder extends BaseSeeder {
     async run(): Promise<void> {

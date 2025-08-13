@@ -10,12 +10,7 @@ import {
 } from 'typeorm';
 import { ProjectOrmEntity } from './project.entity';
 import { IssueOrmEntity } from './issue.entity';
-
-export enum SprintStatus {
-    PLANNED = 'planned',
-    ACTIVE = 'active',
-    COMPLETED = 'completed',
-}
+import { SprintStatus } from '@repo/domains';
 
 @Entity('sprints')
 export class SprintOrmEntity {

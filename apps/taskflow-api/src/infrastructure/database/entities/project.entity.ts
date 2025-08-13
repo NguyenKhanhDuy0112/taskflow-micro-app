@@ -9,18 +9,13 @@ import {
     JoinColumn,
     Index,
 } from 'typeorm';
+import { ProjectStatus } from '@repo/domains';
 import { UserOrmEntity } from './user.entity';
 import { ProjectMemberOrmEntity } from './project-member.entity';
 import { IssueOrmEntity } from './issue.entity';
 import { SprintOrmEntity } from './sprint.entity';
 import { LabelOrmEntity } from './label.entity';
 import { VersionOrmEntity } from './version.entity';
-
-export enum ProjectStatus {
-    ACTIVE = 'active',
-    ARCHIVED = 'archived',
-    ON_HOLD = 'on_hold',
-}
 
 @Entity('projects')
 export class ProjectOrmEntity {

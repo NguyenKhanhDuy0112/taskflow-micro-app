@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { UserRole } from '../../../infrastructure/database/entities/user.entity';
+import { AuthResponse, UserRole } from '@repo/domains';
 
-export class AuthResponseDto {
+export class AuthResponseDto implements AuthResponse {
     @ApiProperty()
     accessToken: string;
 

@@ -6,17 +6,12 @@ import {
     UpdateDateColumn,
     OneToMany,
 } from 'typeorm';
+import { UserRole } from '@repo/domains';
 import { ProjectOrmEntity } from './project.entity';
 import { ProjectMemberOrmEntity } from './project-member.entity';
 import { IssueOrmEntity } from './issue.entity';
 import { CommentOrmEntity } from './comment.entity';
 import { WorklogOrmEntity } from './worklog.entity';
-
-export enum UserRole {
-    ADMIN = 'admin',
-    MEMBER = 'member',
-    VIEWER = 'viewer',
-}
 
 @Entity('users')
 export class UserOrmEntity {
@@ -48,7 +43,7 @@ export class UserOrmEntity {
     @Column({ name: 'email_verified', default: false })
     emailVerified: boolean;
 
-    @Column({ name: 'last_login_at', type: 'timestamp', nullable: true }) // Fix: explicit type
+    @Column({ name: 'last_login_at', type: 'timestamp', nullable: true })
     lastLoginAt: Date | null;
 
     @CreateDateColumn({ name: 'created_at' })

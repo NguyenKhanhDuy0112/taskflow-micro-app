@@ -1,5 +1,5 @@
+import { SprintStatus } from '@repo/domains';
 import { SprintEntity } from '../entities/sprint.entity';
-import { SprintStatus } from '../../infrastructure/database/entities/sprint.entity';
 
 export interface SprintRepositoryInterface {
     save(sprint: SprintEntity): Promise<SprintEntity>;
